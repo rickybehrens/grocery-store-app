@@ -14,7 +14,7 @@ const Header = () => {
           <Link className="text-light" to="/">
             <h1 className="m-0">Grocery Store Application</h1>
           </Link>
-          <p className="m-0">Soon, this will be a legitimate grocery store searching applicatio.</p>
+          <p className="m-0">Soon, this will be a legitimate grocery store searching application.</p>
         </div>
         <div>
           {Auth.loggedIn() ? (
