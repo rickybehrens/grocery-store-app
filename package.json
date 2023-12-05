@@ -1,0 +1,11 @@
+{
+  "name": "group-project3",
+  "version": "1.0.0",
+  "description": "[![Github License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) <br/> https://github.com/rickybehrens/grocery-store-app <br/>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
