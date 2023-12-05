@@ -4,8 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [],
+  "author": "Ricardo, and Broch",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/server": "4.9.5",
+    "express": "4.17.1",
+    "graphql": "16.8.1",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "7.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
 }
