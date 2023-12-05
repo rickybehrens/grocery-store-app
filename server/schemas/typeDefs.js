@@ -6,6 +6,11 @@ type User {
     password: String
 }
 
+type Auth {
+    token: ID!
+    user: User
+  }
+
 type Query {
     users: [User]
     user(username: String!): User
