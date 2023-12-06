@@ -10,7 +10,8 @@
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
     "client": "cd client && npm start",
-    "server": "cd server nodemon server.js --ignore client"
+    "server": "cd server nodemon server.js --ignore client",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "Ricardo, and Broch",
