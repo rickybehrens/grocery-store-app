@@ -5,11 +5,13 @@ import App from './App.jsx'
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Error from './pages/Error'
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        errorElement: <Error />,
         children: [
             {
                 index: true,
