@@ -64,7 +64,7 @@ const resolvers = {
     },
   },
 
-  Mutation: {
+Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
@@ -81,7 +81,8 @@ const resolvers = {
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError
+throw AuthenticationError
+ main
       }
 
       const token = signToken(user);
