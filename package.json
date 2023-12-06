@@ -10,16 +10,18 @@
     "build": "cd client && npm run build",
     "install": "cd server && npm i && cd ../client && npm i",
     "client": "cd client && npm start",
-    "server": "cd server nodemon server.js --ignore client"
+    "server": "cd server nodemon server.js --ignore client",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "Ricardo, and Broch",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^8.2.0",
-    "vite": "^4.5.1"
+    "@vitejs/plugin-react": "^4.2.1",
+    "concurrently": "^8.2.0"
   },
   "dependencies": {
-    "axios": "^1.6.2"
+    "axios": "^1.6.2",
+    "vite": "^5.0.5"
   }
 }
