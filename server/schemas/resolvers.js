@@ -40,9 +40,6 @@ const generateAuthToken = async () => {
 const resolvers = {
   Query: {
     users: async () => {
-<<<<<<< HEAD
-      return User.find({});
-=======
       // Get the authentication token
       const authToken = await generateAuthToken();
 
@@ -61,21 +58,16 @@ const resolvers = {
         console.error('Error making API request:', error.response?.data || error.message);
         throw new Error('Failed to fetch data from Kroger API');
       }
->>>>>>> 00bf7f57ad8b890a2f41af66016240c41889da05
     },
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
   },
 
-<<<<<<< HEAD
-=======
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-  },
 
->>>>>>> 00bf7f57ad8b890a2f41af66016240c41889da05
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -87,21 +79,13 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-<<<<<<< HEAD
-        throw AuthenticationError
-=======
         throw new AuthenticationError("User not found");
->>>>>>> 00bf7f57ad8b890a2f41af66016240c41889da05
       }
 
       const correctPw = await user.isCorrectPassword(password);
 
       if (!correctPw) {
-<<<<<<< HEAD
-        throw AuthenticationError
-=======
         throw new AuthenticationError("Incorrect password");
->>>>>>> 00bf7f57ad8b890a2f41af66016240c41889da05
       }
 
       const token = signToken(user);
