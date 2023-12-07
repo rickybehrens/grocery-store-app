@@ -14,6 +14,13 @@ type Auth {
 type Query {
     users: [User]
     user(username: String!): User
+    jawgTiles(z: Int!, x: Int!, y: Int!): String  # New type for Jawg API
+    products: [Product]!
+}
+
+type Product {
+    id: ID
+    name: String
 }
 
 type Mutation {
