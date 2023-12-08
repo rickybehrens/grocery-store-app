@@ -4,6 +4,7 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import DarkModeToggle from './components/DarkModeToggle';
 
 const client = new ApolloClient({
     uri: '/graphql',
@@ -15,6 +16,7 @@ function App() {
         <ApolloProvider client={client}>
             <div>
                 <Header />
+                <DarkModeToggle />
                 <div>
                     <Outlet />
                 </div>
