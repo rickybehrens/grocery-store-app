@@ -1,0 +1,13 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+
+body:not(.dark) {
+    background-color: white;
+    color: black;
+}
