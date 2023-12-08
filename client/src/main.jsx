@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Locations from './pages/Locations'
+import Shoppinglist from './pages/Shoppinglist.jsx'
 import Sustainability from './pages/Sustainability'
 import Error from './pages/Error'
 
@@ -27,6 +28,9 @@ const router = createBrowserRouter([
             }, {
                 path: '/locations',
                 element: <Locations />
+            }, {
+                path: '/shoppinglist',
+                element: <Shoppinglist />
             }, {
                 path: '/sustainability',
                 element: <Sustainability />
