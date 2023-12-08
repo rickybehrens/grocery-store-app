@@ -23,3 +23,14 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const ADD_ITEM = gql`
+  mutation addItem($itemname: String!) {
+    addItem(itemname: $itemname) {
+      item {
+        _id
+        itemname
+      }
+    }
+  }
+`;
