@@ -4,7 +4,7 @@ const { User } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const jawgApiConfig = {
-  tileUrl: 'https://tile.jawg.io/jawg-streets/{z}/{x}/{y}{@2x}.{format}?access-token=NVIYPcUrneIcDZ3b7igjmBxCU6O4xhsqdZ88lr1W1H8qVwbaD9PyRvJityH8n6iI&lang={lang}',
+  tileUrl: 'https://api.jawg.io/places/v1/reverse?point.lat=48.858268&point.lon=2.294471&access-token=NVIYPcUrneIcDZ3b7igjmBxCU6O4xhsqdZ88lr1W1H8qVwbaD9PyRvJityH8n6iI',
   styleId: 'jawg-streets', // Replace with your style ID
   format: 'png', // Replace with the desired tile format (png or pbf)
   accessToken: 'NVIYPcUrneIcDZ3b7igjmBxCU6O4xhsqdZ88lr1W1H8qVwbaD9PyRvJityH8n6iI', // Replace with your Jawg access token
@@ -23,27 +23,16 @@ const generateAuthToken = async () => {
 
 const resolvers = {
   Query: {
-    products: async () => {
-      // Get the authentication token
-      const authToken = await generateAuthToken();
+    products: async (_, { lat, long }) => {
+      const jawgApiUrl = `https://api.jawg.io/places/v1/reverse?point.lat=${lat}&point.lon=${long}&access-token=${jawgApiConfig.accessToken}`;
 
-      // Construct the Jawg tile URL
-      const jawgTileUrl = jawgApiConfig.tileUrl
-        .replace('{z}', '10')
-        .replace('{x}', '0')
-        .replace('{y}', '0')
-        .replace('{@2x}', '@2x');
-
-      // Make a request to the Jawg API
       try {
-        const response = await axios.get(jawgTileUrl);
-
-        // Process the API response as needed
-        const data = response.data;
-        return data;
+        const response = await axios.get(jawgApiUrl);
+        return response.data;
+        
       } catch (error) {
-        console.error('Error making API request:', error.response?.data || error.message);
-        throw new Error('Failed to fetch data from Jawg API');
+        console.error('Error making Jawg API request:', error.message);
+        throw new Error('Failed to fetch reverse geocode data');
       }
     },
 
@@ -83,6 +72,4 @@ const resolvers = {
   }
 };
 
-
 module.exports = resolvers;
-
