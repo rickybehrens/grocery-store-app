@@ -8,4 +8,6 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  darkMode: 'class', // This can be 'media' if you want to use prefers-color-scheme
+  // ...
 };
