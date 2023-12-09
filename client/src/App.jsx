@@ -16,7 +16,10 @@ function App() {
         <ApolloProvider client={client}>
             <div>
                 <Header />
+                <div>
                 <DarkModeToggle />
+                </div>
+                <br></br>
                 <div>
                     <Outlet />
                 </div>
