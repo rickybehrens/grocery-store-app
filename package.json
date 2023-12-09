@@ -11,6 +11,7 @@
     "install": "cd server && npm i && cd ../client && npm i",
     "client": "cd client && npm start",
     "server": "cd server nodemon server.js --ignore client",
+    "afterpull": "npm run install && npm run build && npm run dev",
     "postinstall": "npm run build"
   },
   "keywords": [],
