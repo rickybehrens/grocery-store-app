@@ -1,6 +1,6 @@
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
-const { User } = require('../models');
+const { User, Item } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const jawgApiConfig = {
@@ -79,6 +79,17 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
+    },
+    
+    addItem: async (parent, { itemname }) => {
+      try {
+        const newItem = await Item.create({
+          itemname,
+        });
+        return { Item: newItem};
+      } catch (error) {
+        console.log('Error adding item', error.message);
+      }
     }
   }
 };
