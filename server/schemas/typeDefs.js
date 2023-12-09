@@ -22,13 +22,22 @@ const typeDefs = `
     users: [User]
     user(username: String!): User
     products(lat: Float!, long: Float!): [Product]  # Add lat and long arguments here
-}
-
+  }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addItem(itemname: String!): ItemResponse  # Update this line to include the mutation
     updateProducts(lat: Float!, long: Float!): [Product]  # Define the mutation in the schema
+  }
+
+  type Item {
+    _id: ID
+    itemname: String
+  }
+
+  type ItemResponse {
+    Item: Item
   }
 `;
 
