@@ -32,8 +32,11 @@ const Shoppinglist = () => {
             });
 
             console.log('(DELETE BEFORE PRODUCTION)Mutation Response:', data)
+
+            const newItem = data.addItem.item;
+
             // Updates the list of items
-            setItems([...items, data.addItem.item]);
+            setItems([...items, newItem]);
 
             // Clears the users input
             setFormState({
