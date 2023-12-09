@@ -34,3 +34,12 @@ export const ADD_ITEM = gql`
     }
   }
 `;
+
+export const UPDATE_PRODUCTS = gql`
+  mutation updateProducts($lat: Float!, $long: Float!) {
+    updateProducts(lat: $lat, long: $long) {
+      id
+      name
+    }
+  }
+`;

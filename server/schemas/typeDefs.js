@@ -1,39 +1,44 @@
 const typeDefs = `
-type User {
+  type User {
     _id: ID
     username: String
     email: String
     password: String
-}
+  }
 
-type Auth {
+  type Auth {
     token: ID!
     user: User
   }
 
-type Query {
-    users: [User]
-    user(username: String!): User
-    jawgTiles(z: Int!, x: Int!, y: Int!): String  # New type for Jawg API
-    products: [Product]
-    items: [Item]
-}
-
-type Product {
+  type Product {
     id: ID
     name: String
-}
+    lat: Float!
+    long: Float!
+  }
 
-type Item {
-    id: ID
-    itemname: String
-}
+  type Query {
+    users: [User]
+    user(username: String!): User
+    products(lat: Float!, long: Float!): [Product]  # Add lat and long arguments here
+  }
 
-type Mutation {
+  type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addItem(itemname: String!): Item
-}
+    addItem(itemname: String!): ItemResponse  # Update this line to include the mutation
+    updateProducts(lat: Float!, long: Float!): [Product]  # Define the mutation in the schema
+  }
+
+  type Item {
+    _id: ID
+    itemname: String
+  }
+
+  type ItemResponse {
+    Item: Item
+  }
 `;
 
 module.exports = typeDefs;
