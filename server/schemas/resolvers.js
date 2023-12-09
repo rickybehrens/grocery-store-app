@@ -29,10 +29,6 @@ const resolvers = {
         // Update API URL with user location
         const apiUrl = `https://api.jawg.io/places/v1/reverse?point.lat=${lat}&point.lon=${long}&access-token=NVIYPcUrneIcDZ3b7igjmBxCU6O4xhsqdZ88lr1W1H8qVwbaD9PyRvJityH8n6iI`;
 
-        console.log('Received lat:', lat);
-        console.log('Received long:', long);
-        console.log('Constructed API URL:', apiUrl);
-
         // Fetch products based on updated API URL
         const response = await axios.get(apiUrl, {
           headers: {
@@ -40,9 +36,14 @@ const resolvers = {
           },
         });
         const { features: products } = response.data;
+        console.log(response);
 
-        // Return product data
-        return products;
+        // Assuming each product has a unique identifier named "id"
+        const uniqueProducts = Array.from(new Set(products.map(product => product.id)))
+          .map(id => products.find(product => product.id === id));
+
+        // Return unique product data
+        return uniqueProducts;
       } catch (error) {
         console.error('Error fetching products:', error.message);
         throw new Error('Failed to retrieve products.');
