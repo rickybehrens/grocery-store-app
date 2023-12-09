@@ -1,28 +1,34 @@
-// Locations.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import sendLocationToBackend from '../components/Geolocation.jsx';
 
 const Locations = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(successCallback);
-  } else {
-    console.log('Geolocation is not supported by this browser.');
-  }
-
-  function successCallback(position) {
-    console.log(position);
-    const lat = position.coords.latitude;
-    const long = position.coords.longitude;
-    console.log(lat);
-    console.log(long);
-
-    sendLocationToBackend(lat, long); // Import and use the function
-  }
+  const [formState, setFormState] = useState({ lat: null, long: null });
+  
+  useEffect(() => {
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+              (position) => {
+                  const { latitude, longitude } = position.coords;
+                  setFormState({ lat: latitude, long: longitude });
+                  sendLocationToBackend(latitude, longitude);
+        },
+        (error) => {
+          console.error('Error getting user location:', error.message);
+        },
+      );
+    } else {
+      console.log('Geolocation is not supported by this browser.');
+    }
+  }, []);
 
   return (
     <>
       <div>Locations Page Content</div>
-      <div className="map"></div>
+      {formState.lat && formState.long && (
+        <div className="map">
+          Your location: Lat: {formState.lat}, Long: {formState.long}
+        </div>
+      )}
     </>
   );
 };
