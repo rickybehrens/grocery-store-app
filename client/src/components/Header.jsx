@@ -13,16 +13,6 @@ const Header = () => {
           <FontAwesomeIcon icon={faHome} className="mr-1" /> Home
         </Link>
 
-        {/* Login */}
-        <Link to="/login" className="header-link">
-          <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
-        </Link>
-
-        {/* Signup */}
-        <Link to="/signup" className="header-link">
-          <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
-        </Link>
-
         {/* Shopping List */}
         <Link to="/shoppinglist" className="header-link">
           <FontAwesomeIcon icon={faShoppingCart} className="mr-1" /> Shopping-List
@@ -34,8 +24,18 @@ const Header = () => {
         </Link>
 
         {/* Sustainability */}
-        <Link to="/sustainability" className="header-link">
-          <FontAwesomeIcon icon={faLeaf} className="mr-1" /> Sustainability
+        <Link to="/sustainability" className="header-link text-green-700">
+          <FontAwesomeIcon icon={faLeaf} className="mr-1 text-green-700" /> Sustainability
+        </Link>
+
+        {/* Login */}
+        <Link to="/login" className="header-link">
+          <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
+        </Link>
+
+        {/* Signup */}
+        <Link to="/signup" className="header-link">
+          <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
         </Link>
       </div>
     </header>
