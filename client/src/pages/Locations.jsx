@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import axios from 'axios';
 import sendLocationToBackend from '../components/Geolocation.jsx';
+import '../App.css';
 
 const Locations = () => {
   const [formState, setFormState] = useState({ lat: null, long: null });
@@ -45,6 +46,23 @@ const Locations = () => {
       console.error('Error fetching grocery store data:', error.message);
     }
   };
+
+  useEffect(() => {
+    const handleThemeChange = () => {
+      const theme = localStorage.getItem('theme') || 'light';
+      const mapContainer = document.querySelector('.leaflet-container');
+
+      if (mapContainer) {
+        mapContainer.classList.toggle('dark-theme', theme === 'dark');
+      }
+    };
+
+    window.addEventListener('themeChange', handleThemeChange);
+
+    return () => {
+      window.removeEventListener('themeChange', handleThemeChange);
+    };
+  }, []);
 
   return (
     <>

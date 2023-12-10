@@ -7,26 +7,25 @@ import Footer from './components/Footer';
 import DarkModeToggle from './components/DarkModeToggle';
 
 const client = new ApolloClient({
-    uri: '/graphql',
-    cache: new InMemoryCache(),
+  uri: '/graphql',
+  cache: new InMemoryCache(),
 });
 
 function App() {
-    return (
-        <ApolloProvider client={client}>
-            <div>
-                <Header />
-                <div>
-                <DarkModeToggle />
-                </div>
-                <br></br>
-                <div>
-                    <Outlet />
-                </div>
-                <Footer />
-            </div>
-        </ApolloProvider>
-    );
+  return (
+    <ApolloProvider client={client}>
+      <div className="app-container">
+        <div className="header-and-toggle-container">
+          <Header />
+          <DarkModeToggle />
+        </div>
+        <div className="content-container">
+          <Outlet />
+        </div>
+        <Footer />
+      </div>
+    </ApolloProvider>
+  );
 }
 
 export default App;
