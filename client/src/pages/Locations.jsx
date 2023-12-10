@@ -2,6 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import axios from 'axios';
 import sendLocationToBackend from '../components/Geolocation.jsx';
+import '../App.css';
+import { Icon } from 'leaflet';
+
+const shoppingCart = new Icon({
+  iconUrl: '../public/shoppingCart.svg',
+  iconSize: [40, 40]
+});
+
+const userLocation = new Icon({
+  iconUrl: '../public/userBlue.png',
+  iconSize: [50, 50]
+});
 
 const Locations = () => {
   const [formState, setFormState] = useState({ lat: null, long: null });
@@ -46,22 +58,39 @@ const Locations = () => {
     }
   };
 
+  useEffect(() => {
+    const handleThemeChange = () => {
+      const theme = localStorage.getItem('theme') || 'light';
+      const mapContainer = document.querySelector('.leaflet-container');
+
+      if (mapContainer) {
+        mapContainer.classList.toggle('dark-theme', theme === 'dark');
+      }
+    };
+
+    window.addEventListener('themeChange', handleThemeChange);
+
+    return () => {
+      window.removeEventListener('themeChange', handleThemeChange);
+    };
+  }, []);
+
   return (
     <>
       <div>
-        Locations Page Content (Number of Grocery Stores: {groceryStores.length})
+        Locations Page Content (Number of Grocery Stores: {groceryStores.length} within 10 miles)
       </div>
       {formState.lat && formState.long && (
         <div className="map">
           Your location: Lat: {formState.lat}, Long: {formState.long}
 
           {/* Render the map */}
-          <MapContainer center={[formState.lat, formState.long]} zoom={13} style={{ height: '100hv', width: '100%' }}>
+          <MapContainer center={[formState.lat, formState.long]} zoom={15} style={{ height: '100hv', width: '100%' }}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={[formState.lat, formState.long]}>
+            <Marker position={[formState.lat, formState.long]} icon={userLocation}>
               <Popup>Your location</Popup>
             </Marker>
 
@@ -70,6 +99,7 @@ const Locations = () => {
               <Marker
                 key={store.id}
                 position={[store.lat, store.lon]}
+                icon={shoppingCart} // Set the icon using the icon prop within options
               >
                 <Popup>{store.tags.name}</Popup>
               </Marker>
