@@ -3,6 +3,17 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import axios from 'axios';
 import sendLocationToBackend from '../components/Geolocation.jsx';
 import '../App.css';
+import { Icon } from 'leaflet';
+
+const shoppingCart = new Icon({
+  iconUrl: '../public/shoppingCart.svg',
+  iconSize: [40, 40]
+});
+
+const userLocation = new Icon({
+  iconUrl: '../public/userBlue.png',
+  iconSize: [50, 50]
+});
 
 const Locations = () => {
   const [formState, setFormState] = useState({ lat: null, long: null });
@@ -79,7 +90,7 @@ const Locations = () => {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             />
-            <Marker position={[formState.lat, formState.long]}>
+            <Marker position={[formState.lat, formState.long]} icon={userLocation}>
               <Popup>Your location</Popup>
             </Marker>
 
@@ -88,6 +99,7 @@ const Locations = () => {
               <Marker
                 key={store.id}
                 position={[store.lat, store.lon]}
+                icon={shoppingCart} // Set the icon using the icon prop within options
               >
                 <Popup>{store.tags.name}</Popup>
               </Marker>
