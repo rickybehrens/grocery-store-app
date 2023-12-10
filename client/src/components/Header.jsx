@@ -1,16 +1,42 @@
+// main/client/src/components/Header.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { faHome, faSignInAlt, faUserPlus, faShoppingCart, faMapMarkerAlt, faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Header = () => {
   return (
-    <header className="header-container">
-      <div className="header-links">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/signup">Signup</Link>
-        <Link to="/shoppinglist">Shopping-List</Link>
-        <Link to="/locations">Locations</Link>
-        <Link to="/sustainability">Sustainability</Link>
+    <header className="header-container max-w-screen-xl">
+      <div className="header-links flex justify-start w-full space-x-9">
+        {/* Home */}
+        <Link to="/" className="header-link">
+          <FontAwesomeIcon icon={faHome} className="mr-1" /> Home
+        </Link>
+
+        {/* Login */}
+        <Link to="/login" className="header-link">
+          <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
+        </Link>
+
+        {/* Signup */}
+        <Link to="/signup" className="header-link">
+          <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
+        </Link>
+
+        {/* Shopping List */}
+        <Link to="/shoppinglist" className="header-link">
+          <FontAwesomeIcon icon={faShoppingCart} className="mr-1" /> Shopping-List
+        </Link>
+
+        {/* Locations */}
+        <Link to="/locations" className="header-link">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1" /> Locations
+        </Link>
+
+        {/* Sustainability */}
+        <Link to="/sustainability" className="header-link">
+          <FontAwesomeIcon icon={faLeaf} className="mr-1" /> Sustainability
+        </Link>
       </div>
     </header>
   );

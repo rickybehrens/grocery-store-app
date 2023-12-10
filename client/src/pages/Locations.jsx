@@ -67,14 +67,14 @@ const Locations = () => {
   return (
     <>
       <div>
-        Locations Page Content (Number of Grocery Stores: {groceryStores.length})
+        Locations Page Content (Number of Grocery Stores: {groceryStores.length} within 10 miles)
       </div>
       {formState.lat && formState.long && (
         <div className="map">
           Your location: Lat: {formState.lat}, Long: {formState.long}
 
           {/* Render the map */}
-          <MapContainer center={[formState.lat, formState.long]} zoom={13} style={{ height: '100hv', width: '100%' }}>
+          <MapContainer center={[formState.lat, formState.long]} zoom={15} style={{ height: '100hv', width: '100%' }}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
