@@ -103,3 +103,9 @@ body:not(.dark) {
     height: 100vh;
     width: 100%;
 }
+
+/* Add this CSS to your App.css file */
+li {
+  display: flex;
+  align-items: center;
+}

@@ -1,6 +1,6 @@
-// ShoppingList.jsx
 import React, { useState, useEffect } from 'react';
 import TriggeredListIcon from '../components/TriggeredListIcon';
+import triggerWords from '../components/triggerWords.json';
 
 const ShoppingList = () => {
   // State to hold the list of items
@@ -25,27 +25,26 @@ const ShoppingList = () => {
   // Function to handle item addition
   const addItem = () => {
     if (inputValue.trim() !== '') {
-      setItems([...items, inputValue]);
+      setItems([...items, { name: inputValue, completed: false }]);
       setInputValue('');
     }
   };
 
-  // Enter submits the form now
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      addItem();
-    }
-  };
-
+  // Function to handle item deletion
   // Function to handle item deletion
   const deleteItem = (index) => {
+    console.log(`Deleting item at index ${index}`);
     const updatedItems = [...items];
     updatedItems.splice(index, 1);
     setItems(updatedItems);
   };
 
-  // List of trigger words
-  const triggerWords = ['canned tuna', 'canned anchovies', 'canned sardines', 'sardines', 'tuna', 'swordfish', 'salmon', 'cod', 'haddock', 'halibut', 'mackerel', 'pollock', 'rockfish', 'snapper', 'sole', 'tilapia', 'trout', 'tuna', 'catfish', 'crab', 'lobster', 'shrimp', 'shrimps', 'prawn', 'prawns', 'clam', 'clams', 'mussel', 'mussels', 'oyster', 'oysters', 'scallop', 'scallops', 'squid', 'squids', 'octopus', 'octopuses', 'octopi', 'fish', 'fishes', 'seafood', 'seafoods', 'sea food', 'sea foods', 'sea-food', 'sea-foods', 'meat', 'meats', 'pork', 'beef', 'chicken', 'lamb', 'veal', 'turkey', 'duck', 'goose', 'rabbit', 'deer', 'elk', 'bison', 'buffalo', 'meat', 'meats', 'pork', 'beef', 'chicken', 'lamb', 'veal', 'turkey', 'duck', 'goose', 'rabbit', 'deer', 'elk', 'bison', 'buffalo', 'meat', 'meats', 'pork', 'beef', 'chicken', 'lamb', 'veal', 'turkey', 'duck', 'goose', 'rabbit', 'deer', 'elk', 'bison', 'buffalo', 'meat', 'meats', 'pork', 'beef', 'chicken', 'lamb', 'veal', 'turkey', 'duck', 'goose', 'rabbit', 'deer', 'elk', 'bison', 'buffalo', 'meat', 'meats', 'pork', 'beef', 'chicken', 'lamb', 'veal', 'turkey', 'duck', 'goose', 'rabbit', 'deer', 'elk', 'bison', 'buffalo', 'meat', 'meats', 'pork', 'beef', 'chicken', 'lamb', 'veal', 'turkey', 'duck', 'goose', 'rabbit', 'deer', 'elk', 'bison', 'buffalo'];
+  // Function to handle toggling completion status
+  const toggleCompletion = (index) => {
+    const updatedItems = [...items];
+    updatedItems[index].completed = !updatedItems[index].completed;
+    setItems(updatedItems);
+  };
 
   return (
     <div>
@@ -55,18 +54,42 @@ const ShoppingList = () => {
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              addItem();
+            }
+          }}
           placeholder="Enter item..."
         />
-        <button onClick={addItem}>Add Item</button>
+        <button
+          onClick={addItem}
+          className="bg-amber-500 rounded hover:bg-red-600 transition duration-300 transform hover:scale-110 p-2"
+        >
+          Add Item
+        </button>
       </div>
       <ul>
         {items.map((item, index) => (
-          <li key={index} onClick={() => deleteItem(index)}>
-            {item} <TriggeredListIcon item={item} triggerWords={triggerWords} />
+          <li key={index} className="flex items-center">
+            <span
+              className={`${item.completed ? 'line-through hover:text-gray-500' : 'hover:text-gray-500'
+                }`}
+              title="Click to mark as completed"
+              onClick={() => toggleCompletion(index)}
+            >
+              {item.name}
+            </span>
+            <button
+              className="ml-2 bg-red-600 text-white font-bold rounded w-6 h-6 p-1 flex items-center justify-center"
+              onClick={() => deleteItem(index)}
+              title="Remove item"
+            >
+              X
+            </button>
+            <TriggeredListIcon item={item.name} triggerWords={triggerWords} />
           </li>
-        ))}
-      </ul>
+        ))}      
+        </ul>
     </div>
   );
 };

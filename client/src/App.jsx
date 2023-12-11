@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import DarkModeToggle from './components/DarkModeToggle';
 import Sustainability from './pages/Sustainability'; // Import the Sustainability component
+import './App.css'
 
 const client = new ApolloClient({
   uri: '/graphql',
