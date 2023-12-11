@@ -15,6 +15,15 @@ const userLocation = new Icon({
   iconSize: [50, 50]
 });
 
+// Define openDirections outside of the Locations component
+const openDirections = (store) => {
+  // Use the selected store's latitude and longitude to create a link for directions
+  const directionsLink = `https://www.google.com/maps/dir/?api=1&destination=${store.lat},${store.lon}`;
+
+  // Open a new tab/window with the directions link
+  window.open(directionsLink, '_blank');
+};
+
 const Locations = () => {
   const [formState, setFormState] = useState({ lat: null, long: null });
   const [groceryStores, setGroceryStores] = useState([]);
@@ -101,7 +110,11 @@ const Locations = () => {
                 position={[store.lat, store.lon]}
                 icon={shoppingCart} // Set the icon using the icon prop within options
               >
-                <Popup>{store.tags.name}</Popup>
+                <Popup>
+                  {store.tags.name}
+                  <br />
+                  <button onClick={() => openDirections(store)}>Get Directions</button>
+                </Popup>
               </Marker>
             ))}
           </MapContainer>
