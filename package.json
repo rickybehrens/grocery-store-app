@@ -13,7 +13,7 @@
     "server": "cd server nodemon server.js --ignore client",
     "afterpull": "npm run install && npm run build && npm run dev",
     "postinstall": "npm run build",
-    "seed": "node seed.js"
+    "seed": "node server/seeds/seed.js"
   },
   "keywords": [],
   "author": "Ricardo, and Broch",
@@ -29,6 +29,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "axios": "^1.6.2",
     "leaflet": "^1.9.4",
+    "mongoose": "^8.0.3",
     "react-leaflet": "^4.2.1",
     "tailwindcss": "^3.3.6",
     "vite": "^5.0.5"

@@ -6,12 +6,12 @@ import '../App.css';
 import { Icon } from 'leaflet';
 
 const shoppingCart = new Icon({
-  iconUrl: '../public/shoppingCart.svg',
+  iconUrl: '/shoppingCart.svg',
   iconSize: [40, 40]
 });
 
 const userLocation = new Icon({
-  iconUrl: '../public/userBlue.png',
+  iconUrl: '/userBlue.png',
   iconSize: [50, 50]
 });
 
@@ -94,7 +94,7 @@ const Locations = () => {
           Your location: Lat: {formState.lat}, Long: {formState.long}
 
           {/* Render the map */}
-          <MapContainer center={[formState.lat, formState.long]} zoom={15} style={{ height: '100hv', width: '100%' }}>
+          <MapContainer center={[formState.lat, formState.long]} zoom={14} style={{ height: '100hv', width: '100%' }}>
             <TileLayer
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
