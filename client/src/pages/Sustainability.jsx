@@ -19,7 +19,7 @@ const Sustainability = () => {
                 <h4 className="mt-8 text-blue-500 font-bold">Seafood:</h4>
             </div>
             <div className="w-3/5">
-                <a href="/SeafoodGuide.png" target="_blank" rel="noopener noreferrer">
+                <a href="../public/SeafoodGuide.png" target="_blank" rel="noopener noreferrer">
                     <img src="/SeafoodGuide.png" alt="" className="w-full h-auto" />
                 </a>
                 <div>
@@ -47,7 +47,7 @@ const Sustainability = () => {
                 <h4 className="mt-8 text-blue-500 font-bold">Meats:</h4>
             </div>
             <div className="w-3/5">
-                <a href="/Meats.png" target="_blank" rel="noopener noreferrer">
+                <a href="../public/Meats.png" target="_blank" rel="noopener noreferrer">
                     <img src="/Meats.png" alt="" className="w-full h-auto" />
                 </a>
             </div>
