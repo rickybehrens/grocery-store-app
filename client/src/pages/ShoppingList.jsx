@@ -32,7 +32,6 @@ const ShoppingList = () => {
   };
 
   // Function to handle item deletion
-  // Function to handle item deletion
   const deleteItem = (index) => {
     console.log(`Deleting item at index ${index}`);
     const updatedItems = [...items];

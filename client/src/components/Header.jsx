@@ -3,24 +3,12 @@ import { Link } from 'react-router-dom';
 import { faHome, faSignInAlt, faUserPlus, faShoppingCart, faMapMarkerAlt, faLeaf, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Auth from '../utils/auth';
-import '../App.css'
 
 const Header = () => {
   const isLoggedIn = Auth.loggedIn(); // Use Auth class to check login status
 
-  window.onscroll = function () { myFunction() };
-  var header = document.getElementById("myHeader");
-  var sticky = header.offsetTop;
-  function myFunction() {
-    if (window.scrollY > sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
-  }
-
   return (
-    <header className="header-container max-w-screen-xl" id="myHeader">
+    <header className="header-container max-w-screen-xl">
       <div className="header-links flex justify-start w-full space-x-9">
         {/* Login and Signup Links (visible only when not logged in) */}
         {!isLoggedIn && (
