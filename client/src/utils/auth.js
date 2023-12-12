@@ -6,9 +6,16 @@ class Auth {
   }
 
   loggedIn() {
+    // Existing logic for checking token and expiration
     const token = this.getToken();
-    // If there is a token and it's not expired, return `true`
-    return token && !this.isTokenExpired(token) ? true : false;
+    if (!token || this.isTokenExpired(token)) return false;
+
+    // Add new promise-based verification logic (optional)
+    return fetch('/api/verify-token', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((response) => response.json())
+      .then((data) => data.isValid);
   }
 
   isTokenExpired(token) {

@@ -13,11 +13,11 @@ const Header = () => {
         {/* Login and Signup Links (visible only when not logged in) */}
         {!isLoggedIn && (
           <>
-            <Link to="/login" className="header-link text-blue-700">
+            <Link to="/login" className="header-link text-blue-500">
               <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
             </Link>
 
-            <Link to="/signup" className="header-link text-blue-700">
+            <Link to="/signup" className="header-link text-blue-500">
               <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
             </Link>
           </>
@@ -36,8 +36,11 @@ const Header = () => {
               <FontAwesomeIcon icon={faShoppingCart} className="mr-1" /> Shopping-List
             </Link>
 
-            {/* Locations */}
-            <Link to="/locations" className="header-link">
+            {/* Locations (protected route) */}
+            <Link
+              to="/locations"
+              className="header-link" // Remove text color for consistency
+            >
               <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1" /> Locations
             </Link>
 
@@ -51,8 +54,8 @@ const Header = () => {
               className="header-link text-red-700" // Keep the text color for distinction
               onClick={() => {
                 Auth.logout();
-                navigate('/'); // Navigate to homepage after logout
-              }} // Trigger logout before navigation
+                window.location.assign('/'); // Keep redirect for consistency
+              }}
             >
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-1 text-red-700" />
               Logout
