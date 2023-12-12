@@ -1,10 +1,12 @@
-// main/client/src/components/Header.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { faHome, faSignInAlt, faUserPlus, faShoppingCart, faMapMarkerAlt, faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faSignInAlt, faUserPlus, faShoppingCart, faMapMarkerAlt, faLeaf, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Auth from '../utils/auth';
 
 const Header = () => {
+  const isLoggedIn = Auth.loggedIn(); // Use Auth class to check login status
+
   return (
     <header className="header-container max-w-screen-xl">
       <div className="header-links flex justify-start w-full space-x-9">
@@ -28,15 +30,28 @@ const Header = () => {
           <FontAwesomeIcon icon={faLeaf} className="mr-1 text-green-700" /> Sustainability
         </Link>
 
-        {/* Login */}
-        <Link to="/login" className="header-link">
-          <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
-        </Link>
+        {/* Login and Signup Links (visible only when not logged in) */}
+        {!isLoggedIn && (
+          <>
+            <Link to="/login" className="header-link">
+              <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
+            </Link>
 
-        {/* Signup */}
-        <Link to="/signup" className="header-link">
-          <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
-        </Link>
+            <Link to="/signup" className="header-link">
+              <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
+            </Link>
+          </>
+        )}
+
+        {/* Logout Link (visible only when logged in) */}
+        {isLoggedIn && (
+          <button
+            className="header-link"
+            onClick={() => Auth.logout()} // use Auth class to logout
+          >
+            <FontAwesomeIcon icon={faSignOutAlt} className="mr-1" /> Logout
+          </button>
+        )}
       </div>
     </header>
   );
