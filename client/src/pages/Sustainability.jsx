@@ -25,27 +25,27 @@ const Sustainability = () => {
                 <h4 className="mt-8">Seafood:</h4>
             </div>
             <div className="w-3/5">
-                <a href="../public/SeafoodGuide.png" target="_blank" rel="noopener noreferrer">
-                    <img src="../public/SeafoodGuide.png" alt="" className="w-full h-auto" />
+                <a href="/SeafoodGuide.png" target="_blank" rel="noopener noreferrer">
+                    <img src="/SeafoodGuide.png" alt="" className="w-full h-auto" />
                 </a>
                 <div>
                     <p className='mt-8'>Things to look for:</p>
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                     <div className="flex items-center justify-center">
-                        <img src="../public/Tuna1.png" alt="" className="w-full h-auto" />
+                        <img src="/Tuna1.png" alt="" className="w-full h-auto" />
                     </div>
                     <div className="flex items-center justify-center">
-                        <img src="../public/Tuna2.png" alt="" className="w-full h-auto" />
+                        <img src="/Tuna2.png" alt="" className="w-full h-auto" />
                     </div>
                     <div className="flex items-center justify-center">
-                        <img src="../public/Tuna3.png" alt="" className="w-full h-auto" />
+                        <img src="/Tuna3.png" alt="" className="w-full h-auto" />
                     </div>
                     <div className="flex items-center justify-center">
-                        <img src="../public/Tuna4.png" alt="" className="w-full h-auto" />
+                        <img src="/Tuna4.png" alt="" className="w-full h-auto" />
                     </div>
                     <div className="flex items-center justify-center">
-                        <img src="../public/Tuna5.webp" alt="" className="w-full h-auto" />
+                        <img src="/Tuna5.webp" alt="" className="w-full h-auto" />
                     </div>
                 </div>
             </div>
@@ -53,8 +53,8 @@ const Sustainability = () => {
                 <h4 className="mt-8">Meats:</h4>
             </div>
             <div className="w-3/5">
-                <a href="../public/Meats.png" target="_blank" rel="noopener noreferrer">
-                    <img src="../public/Meats.png" alt="" className="w-full h-auto" />
+                <a href="/Meats.png" target="_blank" rel="noopener noreferrer">
+                    <img src="/Meats.png" alt="" className="w-full h-auto" />
                 </a>
             </div>
         </main>
