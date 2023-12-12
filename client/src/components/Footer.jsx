@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import PaypalDonateForm from './PaypalDonateForm';
 
 const Footer = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const Footer = () => {
           </span>{"'s "}
           by the Coupon Champs!
         </h4>
+        <PaypalDonateForm />
       </div>
     </footer>
   );
