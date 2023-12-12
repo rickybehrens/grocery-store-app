@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TriggeredListIcon from '../components/TriggeredListIcon';
 import triggerWords from '../components/triggerWords.json';
+import TextArea from '../components/TextArea.jsx';
 
 const ShoppingList = () => {
   // State to hold the list of items
@@ -88,8 +89,11 @@ const ShoppingList = () => {
             </button>
             <TriggeredListIcon item={item.name} triggerWords={triggerWords} />
           </li>
-        ))}      
-        </ul>
+        ))}
+      </ul>
+      <div>
+        <TextArea />
+      </div>
     </div>
   );
 };
