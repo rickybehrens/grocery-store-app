@@ -89,14 +89,11 @@ const ShoppingList = () => {
             </button>
             <TriggeredListIcon item={item.name} triggerWords={triggerWords} />
           </li>
-        ))}      
-        </ul>
-        <div>
-
-              <TextArea />
-
-
-            </div>
+        ))}
+      </ul>
+      <div>
+        <TextArea />
+      </div>
     </div>
   );
 };
