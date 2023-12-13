@@ -84,11 +84,16 @@ input:checked+.slider:before {
 }
 
 .header-and-toggle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
   /* Adjust as needed */
+  background-color: #fff;
 }
 
 .header-links {
@@ -113,13 +118,6 @@ li {
   align-items: center;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #ffffff;
-}
-
-.sticky+.content {
-  padding-top: 102px;
+.dark-header {
+  background-color: #2a2a2a;
 }
