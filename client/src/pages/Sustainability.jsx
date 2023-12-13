@@ -16,7 +16,7 @@ const Sustainability = () => {
                 </div>
             </div>
             <div id="seafood">
-                <h4 className="mt-8 text-blue-500 font-bold">Seafood:</h4>
+                <h4 className="mt-8 text-amber-800 font-bold">Seafood:</h4>
             </div>
             <div className="w-3/5">
                 <a href="../public/SeafoodGuide.png" target="_blank" rel="noopener noreferrer">
@@ -44,7 +44,7 @@ const Sustainability = () => {
                 </div>
             </div>
             <div id="meats">
-                <h4 className="mt-8 text-blue-500 font-bold">Meats:</h4>
+                <h4 className="mt-8 text-amber-800 font-bold">Meats:</h4>
             </div>
             <div className="w-3/5">
                 <a href="../public/Meats.png" target="_blank" rel="noopener noreferrer">

@@ -148,3 +148,10 @@ li {
   justify-content: center;
 }
 
+.image-grid img {
+  height: 200px; /* adjust height as needed */
+  width: 300px; /* adjust width as needed */
+  object-fit: cover;
+  align-items: center;
+  justify-content: center;
+}
