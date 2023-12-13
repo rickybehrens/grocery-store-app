@@ -94,6 +94,7 @@ input:checked+.slider:before {
   padding: 0 16px;
   /* Adjust as needed */
   background-color: #fff;
+  height: 80px;
 }
 
 .header-links {
@@ -120,4 +121,8 @@ li {
 
 .dark-header {
   background-color: #2a2a2a;
+}
+
+.content-container {
+  margin-top: 60px;
 }
