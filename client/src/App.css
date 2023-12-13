@@ -84,16 +84,10 @@ input:checked+.slider:before {
 }
 
 .header-and-toggle-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
-  /* Adjust as needed */
-  background-color: #fff;
   height: 80px;
 }
 
@@ -124,5 +118,24 @@ li {
 }
 
 .content-container {
-  margin-top: 60px;
+  margin-top: 15px;
+}
+
+.item-list {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  gap: 3px;
+}
+
+.shopping-text {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 20px;;
+}
+
+.shopping h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
 }

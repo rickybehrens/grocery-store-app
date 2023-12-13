@@ -19,6 +19,7 @@ const DarkModeToggle = () => {
   }, [theme]);
 
   return (
+    <>
     <div className="dark-mode-toggle-container">
       <label className="switch">
         <input type="checkbox" checked={theme === 'dark'} onChange={toggleDarkMode} />
@@ -28,6 +29,7 @@ const DarkModeToggle = () => {
         </div>
       </label>
     </div>
+    </>
   );
 };
 
