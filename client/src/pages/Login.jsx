@@ -47,7 +47,7 @@ const Login = (props) => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You will now be redirected{' '}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
@@ -79,7 +79,7 @@ const Login = (props) => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="my-3 p-3 bg-danger">
                 {error.message}
               </div>
             )}
