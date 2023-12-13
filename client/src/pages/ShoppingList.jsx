@@ -47,9 +47,9 @@ const ShoppingList = () => {
   };
 
   return (
-    <div>
+    <div className='shopping'>
       <h1>Shopping List</h1>
-      <div>
+      <div className='shopping-text'>
         <input
           type="text"
           value={inputValue}
@@ -68,26 +68,30 @@ const ShoppingList = () => {
           Add Item
         </button>
       </div>
-      <ul>
+      <ul className='item-list'>
         {items.map((item, index) => (
           <li key={index} className="flex items-center">
+          <div className="flex-grow mr-2">
             <span
               className={`${item.completed ? 'line-through hover:text-gray-500' : 'hover:text-gray-500'
-                }`}
+              }`}
               title="Click to mark as completed"
               onClick={() => toggleCompletion(index)}
             >
               {item.name}
             </span>
-            <button
-              className="ml-2 bg-red-600 text-white font-bold rounded w-6 h-6 p-1 flex items-center justify-center"
-              onClick={() => deleteItem(index)}
-              title="Remove item"
-            >
-              X
-            </button>
+          </div>
+          <div className="ml-2">
             <TriggeredListIcon item={item.name} triggerWords={triggerWords} />
-          </li>
+          </div>
+          <button
+            className="ml-auto bg-red-600 text-white font-bold rounded w-6 h-6 p-1 flex items-center justify-center"
+            onClick={() => deleteItem(index)}
+            title="Remove item"
+          >
+            X
+          </button>
+        </li>
         ))}
       </ul>
       {/* <div>
