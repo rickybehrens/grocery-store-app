@@ -139,3 +139,12 @@ li {
   font-weight: bold;
   margin-bottom: 20px;
 }
+
+.image-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  align-items: center;
+  justify-content: center;
+}
+
