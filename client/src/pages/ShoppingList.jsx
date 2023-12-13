@@ -90,9 +90,9 @@ const ShoppingList = () => {
           </li>
         ))}
       </ul>
-      <div>
+      {/* <div>
         <TextArea />
-      </div>
+      </div> */}
     </div>
   );
 };
