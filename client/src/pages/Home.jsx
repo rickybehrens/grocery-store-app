@@ -25,7 +25,6 @@ const Home = () => {
                 <img src="./images/kitchen.jpeg" alt="" srcset="" />
                 <img src="./images/cheese.jpeg" alt="" srcset="" />
             </div>
-        </div>
     )
 };
 export default Home;
