@@ -4,9 +4,8 @@ import ImageUploadForm from '../components/ImageUploadForm';
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to the Home Page</h1>
+            <h1>Welcome to Our Shopping Application!</h1>
             <ImageUploadForm />
-        </div>
             <div className='image-grid'>
                 <img src="./images/dinner1.jpeg" alt="" srcset="" />
                 <img src="./images/dinner2.jpeg" alt="" srcset="" />
