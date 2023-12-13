@@ -3,33 +3,21 @@ import { Link } from 'react-router-dom';
 import { faHome, faSignInAlt, faUserPlus, faShoppingCart, faMapMarkerAlt, faLeaf, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Auth from '../utils/auth';
-import '../App.css'
 
 const Header = () => {
   const isLoggedIn = Auth.loggedIn(); // Use Auth class to check login status
 
-  window.onscroll = function () { myFunction() };
-  var header = document.getElementById("myHeader");
-  var sticky = header.offsetTop;
-  function myFunction() {
-    if (window.scrollY > sticky) {
-      header.classList.add("sticky");
-    } else {
-      header.classList.remove("sticky");
-    }
-  }
-
   return (
-    <header className="header-container max-w-screen-xl" id="myHeader">
+    <header className="header-container max-w-screen-xl">
       <div className="header-links flex justify-start w-full space-x-9">
         {/* Login and Signup Links (visible only when not logged in) */}
         {!isLoggedIn && (
           <>
-            <Link to="/login" className="header-link text-blue-700">
+            <Link to="/login" className="header-link text-blue-500">
               <FontAwesomeIcon icon={faSignInAlt} className="mr-1" /> Login
             </Link>
 
-            <Link to="/signup" className="header-link text-blue-700">
+            <Link to="/signup" className="header-link text-blue-500">
               <FontAwesomeIcon icon={faUserPlus} className="mr-1" /> Signup
             </Link>
           </>
@@ -48,8 +36,11 @@ const Header = () => {
               <FontAwesomeIcon icon={faShoppingCart} className="mr-1" /> Shopping-List
             </Link>
 
-            {/* Locations */}
-            <Link to="/locations" className="header-link">
+            {/* Locations (protected route) */}
+            <Link
+              to="/locations"
+              className="header-link" // Remove text color for consistency
+            >
               <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1" /> Locations
             </Link>
 
@@ -63,8 +54,8 @@ const Header = () => {
               className="header-link text-red-700" // Keep the text color for distinction
               onClick={() => {
                 Auth.logout();
-                navigate('/'); // Navigate to homepage after logout
-              }} // Trigger logout before navigation
+                window.location.assign('/'); // Keep redirect for consistency
+              }}
             >
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-1 text-red-700" />
               Logout

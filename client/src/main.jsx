@@ -10,6 +10,8 @@ import Shoppinglist from './pages/ShoppingList';
 import Sustainability from './pages/Sustainability';
 import Error from './pages/Error';
 
+
+
 const router = createBrowserRouter([
     {
         path: '/',
