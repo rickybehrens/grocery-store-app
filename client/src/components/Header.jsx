@@ -8,7 +8,7 @@ const Header = () => {
   const isLoggedIn = Auth.loggedIn(); // Use Auth class to check login status
 
   return (
-    <header className="header-container max-w-screen-xl flex justify-between items-center py-4 px-6 bg-white shadow-md">
+    <header className="header-container max-w-screen-xl flex justify-between items-center py-4 px-6 shadow-md">
       <div className="header-links flex justify-start space-x-9">
         {/* Login and Signup Links (visible only when not logged in) */}
         {!isLoggedIn && (
