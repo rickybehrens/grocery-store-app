@@ -60,16 +60,16 @@ const Header = () => {
             </Link>
           </>
         )}
-      </div>
 
-      {/* Profile Image */}
-      {isLoggedIn && (
-        <img
-          className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
-          src="/path/to/your/profile-image.jpg" // Update with actual image path
-          alt="User Profile"
-        />
-      )}
+        {/* Profile Image */}
+        {isLoggedIn && (
+          <img
+            className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/240px-React-icon.svg.png"
+            alt="../assets/react.svg"
+          />
+        )}
+      </div>
     </header>
   );
 };
