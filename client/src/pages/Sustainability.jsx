@@ -11,8 +11,8 @@ const Sustainability = () => {
             <div>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Sustainability can be achieved by every person! Here are some ways we can all do our part while shopping to help keep our world healthy.</h2>
                 <div>
-                    <h4>Maryville University's <a href="https://online.maryville.edu/blog/what-is-sustainable-shopping/" target="_blank" rel="noopener noreferrer"><span class="text-blue-500 font-bold">ARTICLE</span></a> on sustainable shopping</h4>
-                    <h4>perchenergy.com's <a href="https://www.perchenergy.com/blog/lifestyle/sustainable-grocery-shopping-eating-sustainably" target="_blank" rel="noopener noreferrer"><span class="text-blue-500 font-bold">ARTICLE</span></a> on sustainable shopping, and eating green</h4>
+                    <h4>Maryville University's <a href="https://online.maryville.edu/blog/what-is-sustainable-shopping/" target="_blank" rel="noopener noreferrer"><span className="text-blue-500 font-bold">ARTICLE</span></a> on sustainable shopping</h4>
+                    <h4>perchenergy.com's <a href="https://www.perchenergy.com/blog/lifestyle/sustainable-grocery-shopping-eating-sustainably" target="_blank" rel="noopener noreferrer"><span className="text-blue-500 font-bold">ARTICLE</span></a> on sustainable shopping, and eating green</h4>
                 </div>
             </div>
             <div id="seafood">
