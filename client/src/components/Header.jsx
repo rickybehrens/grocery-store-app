@@ -8,8 +8,8 @@ const Header = () => {
   const isLoggedIn = Auth.loggedIn(); // Use Auth class to check login status
 
   return (
-    <header className="header-container max-w-screen-xl">
-      <div className="header-links flex justify-start w-full space-x-9">
+    <header className="header-container max-w-screen-xl flex justify-between items-center py-4 px-6 bg-white shadow-md">
+      <div className="header-links flex justify-start space-x-9">
         {/* Login and Signup Links (visible only when not logged in) */}
         {!isLoggedIn && (
           <>
@@ -23,7 +23,7 @@ const Header = () => {
           </>
         )}
 
-        {/* Logout Link (visible only when logged in) */}
+        {/* Links visible when logged in */}
         {isLoggedIn && (
           <>
             {/* Home */}
@@ -37,10 +37,7 @@ const Header = () => {
             </Link>
 
             {/* Locations (protected route) */}
-            <Link
-              to="/locations"
-              className="header-link" // Remove text color for consistency
-            >
+            <Link to="/locations" className="header-link">
               <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-1" /> Locations
             </Link>
 
@@ -49,12 +46,13 @@ const Header = () => {
               <FontAwesomeIcon icon={faLeaf} className="mr-1 text-green-700" /> Sustainability
             </Link>
 
+            {/* Logout */}
             <Link
-              to="/" // Directly link to homepage
-              className="header-link text-red-700" // Keep the text color for distinction
+              to="/"
+              className="header-link text-red-700"
               onClick={() => {
                 Auth.logout();
-                window.location.assign('/'); // Keep redirect for consistency
+                window.location.assign('/');
               }}
             >
               <FontAwesomeIcon icon={faSignOutAlt} className="mr-1 text-red-700" />
@@ -63,6 +61,15 @@ const Header = () => {
           </>
         )}
       </div>
+
+      {/* Profile Image */}
+      {isLoggedIn && (
+        <img
+          className="w-10 h-10 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500"
+          src="/path/to/your/profile-image.jpg" // Update with actual image path
+          alt="User Profile"
+        />
+      )}
     </header>
   );
 };
