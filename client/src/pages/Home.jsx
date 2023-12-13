@@ -1,9 +1,12 @@
 import React from 'react';
+import ImageUploadForm from '../components/ImageUploadForm';
 
 const Home = () => {
     return (
         <div>
-            Home Page Content
+            <h1>Welcome to the Home Page</h1>
+            <ImageUploadForm />
+        </div>
             <div className='image-grid'>
                 <img src="./images/dinner1.jpeg" alt="" srcset="" />
                 <img src="./images/dinner2.jpeg" alt="" srcset="" />
