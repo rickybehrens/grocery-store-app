@@ -19,7 +19,7 @@ const ImageUploadForm = () => {
 
     return (
         <form onSubmit={handleFormSubmit}>
-            <div>
+            <div className='home-text p-4'>
                 <label htmlFor="imageInput">Select your profile image here: </label>
                 <input
                     type="file"
@@ -40,7 +40,7 @@ const ImageUploadForm = () => {
                 </div>
             )}
 
-            <button type="submit">Submit</button>
+            <button className="home-button bg-green-300 rounded-lg p-2 ml-4" type="submit">Submit</button>
         </form>
     );
 };
